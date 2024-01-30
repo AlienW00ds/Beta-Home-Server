@@ -10,7 +10,7 @@ const authentication = (req, res, next) => {
         const token = authHeader.split(" ")[1];
         const payload = jwt.verify(token, process.env.JWT_SECRET);
         req.user = { userId: payload.userId, role: payload.role}
-
+        next()
     }catch (error){
         console.log(error);
         return res.status(403).json({err: 'authentication failed'});
