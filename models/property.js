@@ -50,7 +50,7 @@ const propertySchema = new Schema({
         type: 'String',
         required: true,
         default: 'available',
-        enum: ["sold", "unsold"]
+        enum: ["sold", "available"]
       },
       bedroom:{
         type: Number,
@@ -74,9 +74,9 @@ const propertySchema = new Schema({
         },
         video:{
             type: String,
-        }
-
-      }
+        },
+      },
+      salesSupport: managerSchema
 }, {timestamps: true})
 
 module.exports = mongoose.model('Property', propertySchema)
